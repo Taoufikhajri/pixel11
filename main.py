@@ -1,28 +1,13 @@
 """
 Telegram Bot entry point for the Pixel 11 Pro Google One Gemini Bot.
-
-Commands:
-  /start        – Show welcome message and available commands
-  /doctor       – Run a first-time setup self-check
-  /login        – Begin credential capture flow (email → password)
-  /witai        – Save or clear the Wit.ai token used for audio captcha solving
-  /logout       – Clear stored credentials and session data
-  /check_offer  – Run Google One automation and look for Gemini Pro offer
-  /get_link     – Show the last captured offer link
-  /status       – Show current session status and device profile
-  /disable_proxy – Force the current session to use direct/local IP
-  /lang_id      – Switch chat language to Indonesian
-  /langid       – Alias for /lang_id
-
-Supports both Gmail (user@gmail.com) and Google Workspace (user@company.com)
-accounts.
+Upgraded from Pixel 10 Pro clone configuration.
 """
 
 import logging
 import os
 import sys
 
-# Clean up NO_PROXY / no_proxy to prevent httpx from crashing on IPv6 loopback addresses like ::1 on Windows
+# Clean up NO_PROXY / no_proxy to prevent httpx from crashing on IPv6 loopback addresses
 for _var_name in ("no_proxy", "NO_PROXY"):
     if _var_name in os.environ:
         _parts = [p.strip() for p in os.environ[_var_name].split(",")]
@@ -85,11 +70,9 @@ os.makedirs(_LOG_DIR, exist_ok=True)
 
 _formatter = logging.Formatter(config.LOG_FORMAT)
 
-# Console handler
 _console_handler = logging.StreamHandler()
 _console_handler.setFormatter(_formatter)
 
-# File handler – new file per startup: bot_YYYYMMDD_HHMMSS.log
 _log_filename = f"bot_{_dt.now().strftime('%Y%m%d_%H%M%S')}.log"
 _file_handler = logging.FileHandler(
     os.path.join(_LOG_DIR, _log_filename),
@@ -104,7 +87,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ── Application setup ─────────────────────────────────────────────────────────
-
 def _log_startup_diagnostics() -> None:
     """Emit a concise startup checklist to the application log."""
     report = collect_setup_diagnostics()
@@ -233,7 +215,7 @@ def main() -> None:
         session_cleanup_job, interval=300, first=300,
     )
 
-    logger.info("Bot is running. Press Ctrl-C to stop.")
+    logger.info("Pixel 11 Pro Bot is running. Press Ctrl-C to stop.")
     app.run_polling(
         allowed_updates=Update.ALL_TYPES,
         bootstrap_retries=5,
