@@ -1,0 +1,1 @@
+2026-11-08 09:20:43,492 [ERROR] __main__: TELEGRAM_BOT_TOKEN environment variable is not set. Set it as an environment variable (e.g. via .env file or system environment) and restart.
