@@ -1,5 +1,5 @@
 """
-Configuration and constants for the Pixel 10 Pro Google One Gemini Bot.
+Configuration and constants for the Pixel 11 Pro Google One Gemini Bot.
 """
 
 import logging
@@ -86,7 +86,7 @@ BOT_HEADER_MEDIA_URL = _env_text(
 # the Pixel 10 Pro / 10 Pro XL / 10 Pro Fold.
 DEVICE_PRESETS: dict[str, dict[str, str]] = {
     "pixel_10_pro": {
-        "model": "Pixel 10 Pro",
+        "model": "Pixel 11 Pro",
         "brand": "google",
         "manufacturer": "Google",
         "android_version": "16",
