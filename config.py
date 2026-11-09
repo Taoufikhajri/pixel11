@@ -85,7 +85,7 @@ BOT_HEADER_MEDIA_URL = _env_text(
 # 12-month trial are listed here: the Pixel 9 Pro / 9 Pro XL / 9 Pro Fold and
 # the Pixel 10 Pro / 10 Pro XL / 10 Pro Fold.
 DEVICE_PRESETS: dict[str, dict[str, str]] = {
-    "pixel_10_pro": {
+    "pixel_11_pro": {
         "model": "Pixel 11 Pro",
         "brand": "google",
         "manufacturer": "Google",
@@ -147,7 +147,7 @@ DEVICE_PRESETS: dict[str, dict[str, str]] = {
     },
 }
 
-DEFAULT_DEVICE_PROFILE = "pixel_10_pro"
+DEFAULT_DEVICE_PROFILE = "pixel_11_pro"
 DEVICE_PROFILE_NAME = (
     _env_text("DEVICE_PROFILE", DEFAULT_DEVICE_PROFILE).lower().replace("-", "_")
 )
